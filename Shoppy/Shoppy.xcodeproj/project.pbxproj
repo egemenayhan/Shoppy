@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A4DF0DEA21418A8A00788608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0DE921418A8A00788608 /* AppDelegate.swift */; };
-		A4DF0DEC21418A8A00788608 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0DEB21418A8A00788608 /* ViewController.swift */; };
 		A4DF0DEF21418A8A00788608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DF0DED21418A8A00788608 /* Main.storyboard */; };
 		A4DF0DF121418A8C00788608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DF0DF021418A8C00788608 /* Assets.xcassets */; };
 		A4DF0DF421418A8C00788608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DF0DF221418A8C00788608 /* LaunchScreen.storyboard */; };
 		A4DF0DFF21418A8C00788608 /* ShoppyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0DFE21418A8C00788608 /* ShoppyTests.swift */; };
+		A4DF0E202141A1A700788608 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF0E1F2141A1A700788608 /* Networking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,10 +25,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A4DF0E162141A06F00788608 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A4DF0DE621418A8A00788608 /* Shoppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DF0DE921418A8A00788608 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A4DF0DEB21418A8A00788608 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A4DF0DEE21418A8A00788608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4DF0DF021418A8C00788608 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4DF0DF321418A8C00788608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +48,7 @@
 		A4DF0DFA21418A8C00788608 /* ShoppyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DF0DFE21418A8C00788608 /* ShoppyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppyTests.swift; sourceTree = "<group>"; };
 		A4DF0E0021418A8C00788608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4DF0E1F2141A1A700788608 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DF0E202141A1A700788608 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +73,7 @@
 		A4DF0DDD21418A8A00788608 = {
 			isa = PBXGroup;
 			children = (
+				A4DF0E172141A08700788608 /* Frameworks */,
 				A4DF0DE821418A8A00788608 /* Shoppy */,
 				A4DF0DFD21418A8C00788608 /* ShoppyTests */,
 				A4DF0DE721418A8A00788608 /* Products */,
@@ -78,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				A4DF0DE921418A8A00788608 /* AppDelegate.swift */,
-				A4DF0DEB21418A8A00788608 /* ViewController.swift */,
 				A4DF0DED21418A8A00788608 /* Main.storyboard */,
 				A4DF0DF021418A8C00788608 /* Assets.xcassets */,
 				A4DF0DF221418A8C00788608 /* LaunchScreen.storyboard */,
@@ -96,6 +110,14 @@
 			path = ShoppyTests;
 			sourceTree = "<group>";
 		};
+		A4DF0E172141A08700788608 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E1F2141A1A700788608 /* Networking.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +128,8 @@
 				A4DF0DE221418A8A00788608 /* Sources */,
 				A4DF0DE321418A8A00788608 /* Frameworks */,
 				A4DF0DE421418A8A00788608 /* Resources */,
+				A4DF0E162141A06F00788608 /* Embed Frameworks */,
+				A4DF0E1A2141A0D500788608 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -192,12 +216,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A4DF0E1A2141A0D500788608 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/../Vendor/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A4DF0DE221418A8A00788608 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4DF0DEC21418A8A00788608 /* ViewController.swift in Sources */,
 				A4DF0DEA21418A8A00788608 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,7 +401,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YDABZ672Z5;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Vendor/Carthage/Build/iOS";
 				INFOPLIST_FILE = Shoppy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +421,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YDABZ672Z5;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../Vendor/Carthage/Build/iOS";
 				INFOPLIST_FILE = Shoppy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
