@@ -22,6 +22,10 @@
 		36920F871FF6E09A0051424F /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36920F861FF6E09A0051424F /* BaseURL.swift */; };
 		36ABA40C1FF97195007B52DE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3643FA3A1FED4C2400BE5705 /* Alamofire.framework */; };
 		36ABA4101FF971C8007B52DE /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3643FA3A1FED4C2400BE5705 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4DF0E252142819D00788608 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E242142819D00788608 /* Product.swift */; };
+		A4DF0E272142833200788608 /* ProductListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E262142833200788608 /* ProductListPage.swift */; };
+		A4DF0E292142857000788608 /* ProductListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E282142857000788608 /* ProductListRequest.swift */; };
+		A4DF0E2C2142871F00788608 /* NisnassEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E2B2142871F00788608 /* NisnassEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		3643FA471FED885900BE5705 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		36920F861FF6E09A0051424F /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		A46D758120F129B8003E4475 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = ../Vendor/Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		A4DF0E242142819D00788608 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		A4DF0E262142833200788608 /* ProductListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPage.swift; sourceTree = "<group>"; };
+		A4DF0E282142857000788608 /* ProductListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListRequest.swift; sourceTree = "<group>"; };
+		A4DF0E2B2142871F00788608 /* NisnassEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NisnassEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +130,7 @@
 		3618E79D1FED3C03003B5CA5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A4DF0E222142816500788608 /* APIModels */,
 				3643FA201FED3C9C00BE5705 /* Networking.swift */,
 				3643FA3C1FED5B9600BE5705 /* NetworkingModels */,
 				B242FDE720CDE8C500120002 /* Resources */,
@@ -168,6 +177,33 @@
 				3643FA471FED885900BE5705 /* NetworkingError.swift */,
 			);
 			path = NetworkingModels;
+			sourceTree = "<group>";
+		};
+		A4DF0E222142816500788608 /* APIModels */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E2A214286E500788608 /* NisnassAPI */,
+			);
+			path = APIModels;
+			sourceTree = "<group>";
+		};
+		A4DF0E232142817500788608 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E242142819D00788608 /* Product.swift */,
+				A4DF0E262142833200788608 /* ProductListPage.swift */,
+				A4DF0E282142857000788608 /* ProductListRequest.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		A4DF0E2A214286E500788608 /* NisnassAPI */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E2B2142871F00788608 /* NisnassEndpoint.swift */,
+				A4DF0E232142817500788608 /* ProductList */,
+			);
+			path = NisnassAPI;
 			sourceTree = "<group>";
 		};
 		B242FDE720CDE8C500120002 /* Resources */ = {
@@ -294,12 +330,16 @@
 			files = (
 				3643FA461FED678300BE5705 /* Result.swift in Sources */,
 				3643FA3E1FED5BEF00BE5705 /* Endpoint.swift in Sources */,
+				A4DF0E272142833200788608 /* ProductListPage.swift in Sources */,
 				3643FA211FED3C9C00BE5705 /* Networking.swift in Sources */,
 				3643FA481FED885900BE5705 /* NetworkingError.swift in Sources */,
 				3643FA421FED614900BE5705 /* API.swift in Sources */,
 				3643FA401FED605800BE5705 /* HTTPMethod.swift in Sources */,
 				3643FA441FED677300BE5705 /* Response.swift in Sources */,
+				A4DF0E2C2142871F00788608 /* NisnassEndpoint.swift in Sources */,
+				A4DF0E292142857000788608 /* ProductListRequest.swift in Sources */,
 				36920F871FF6E09A0051424F /* BaseURL.swift in Sources */,
+				A4DF0E252142819D00788608 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
