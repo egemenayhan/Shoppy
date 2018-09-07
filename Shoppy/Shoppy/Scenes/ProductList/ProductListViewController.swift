@@ -20,7 +20,8 @@ class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupViewModel()
+        model.reloadProducts()
     }
 
 }
@@ -50,15 +51,19 @@ private extension ProductListViewController {
 extension ProductListViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return model.state.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath)
+        
+        cell.backgroundColor = .black
+        
+        return cell
     }
     
 }
@@ -67,7 +72,7 @@ extension ProductListViewController: UICollectionViewDataSource {
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.zero
+        return CGSize(width: 80, height: 80)
     }
     
 }
