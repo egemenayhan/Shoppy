@@ -13,6 +13,8 @@
 		A4DF0DF421418A8C00788608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DF0DF221418A8C00788608 /* LaunchScreen.storyboard */; };
 		A4DF0DFF21418A8C00788608 /* ShoppyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0DFE21418A8C00788608 /* ShoppyTests.swift */; };
 		A4DF0E202141A1A700788608 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF0E1F2141A1A700788608 /* Networking.framework */; };
+		A4DF0E302142AE9F00788608 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */; };
+		A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		A4DF0DFE21418A8C00788608 /* ShoppyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppyTests.swift; sourceTree = "<group>"; };
 		A4DF0E0021418A8C00788608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DF0E1F2141A1A700788608 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		A4DF0DE821418A8A00788608 /* Shoppy */ = {
 			isa = PBXGroup;
 			children = (
+				A4DF0E2D2142ADAE00788608 /* Scenes */,
 				A4DF0DE921418A8A00788608 /* AppDelegate.swift */,
 				A4DF0DED21418A8A00788608 /* Main.storyboard */,
 				A4DF0DF021418A8C00788608 /* Assets.xcassets */,
@@ -116,6 +121,23 @@
 				A4DF0E1F2141A1A700788608 /* Networking.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4DF0E2D2142ADAE00788608 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E2E2142ADB900788608 /* ProductList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A4DF0E2E2142ADB900788608 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */,
+				A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */,
+			);
+			path = ProductList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DF0E302142AE9F00788608 /* ProductListViewController.swift in Sources */,
 				A4DF0DEA21418A8A00788608 /* AppDelegate.swift in Sources */,
+				A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
