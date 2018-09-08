@@ -15,6 +15,7 @@ public struct Product {
     public let description: String
     public let price: Double
     public let minPrice: Double
+    public let thumbnailURL: URL?
     
 }
 
@@ -27,6 +28,7 @@ private extension Product {
         case description
         case price
         case minPrice
+        case thumbnail
     }
     
 }
@@ -41,6 +43,9 @@ extension Product: Decodable {
         description = try container.decode(String.self, forKey: .description)
         price = try container.decode(Double.self, forKey: .price)
         minPrice = try container.decode(Double.self, forKey: .minPrice)
+        
+        let thumbnailPath = try container.decode(String.self, forKey: .thumbnail)
+        thumbnailURL = URL(string: "\(MediaEndpoint.ListEndpoint)\(thumbnailPath)") 
     }
     
 }
