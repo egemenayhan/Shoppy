@@ -14,7 +14,7 @@ public struct Product {
     public let designerName: String
     public let description: String
     public let price: Double
-    public let minPrice: Double?
+    public let minPrice: Double
     
 }
 
@@ -24,9 +24,9 @@ private extension Product {
     enum CodingKeys: String, CodingKey {
         case name
         case designerName = "designerCategoryName"
-        case description = "description"
-        case price = "price"
-        case minPrice = "minPrice"
+        case description
+        case price
+        case minPrice
     }
     
 }
@@ -40,7 +40,7 @@ extension Product: Decodable {
         designerName = try container.decode(String.self, forKey: .designerName)
         description = try container.decode(String.self, forKey: .description)
         price = try container.decode(Double.self, forKey: .price)
-        minPrice = try? container.decode(Double.self, forKey: .minPrice)
+        minPrice = try container.decode(Double.self, forKey: .minPrice)
     }
     
 }
