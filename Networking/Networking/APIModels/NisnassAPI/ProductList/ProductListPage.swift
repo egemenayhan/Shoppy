@@ -10,7 +10,7 @@ import Foundation
 
 public struct ProductListPage {
     
-    public let page: Int
+    public let pageNumber: Int
     public let products: [Product]
     
 }
@@ -19,7 +19,7 @@ public struct ProductListPage {
 private extension ProductListPage {
     
     enum CodingKeys: String, CodingKey {
-        case page = "page"
+        case pageNumber = "page"
         case products = "hits"
     }
     
@@ -30,7 +30,7 @@ extension ProductListPage: Decodable {
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ProductListPage.CodingKeys.self)
-        page = try container.decode(Int.self, forKey: .page)
+        pageNumber = try container.decode(Int.self, forKey: .pageNumber)
         products = try container.decode([Product].self, forKey: .products)
     }
     

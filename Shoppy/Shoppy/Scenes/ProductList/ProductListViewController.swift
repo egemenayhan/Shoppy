@@ -16,6 +16,7 @@ class ProductListViewController: UIViewController {
     // MARK: - Properties
     private let model = ProductListViewModel()
     private var refreshControl = UIRefreshControl()
+    private var showActivity = false
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -36,6 +37,14 @@ private extension ProductListViewController {
         static let padding = 10
         static let numberOfCellOnPortrait = 2
         static let cellRatio: CGFloat = 1.8 // height / width
+        static let activityCellHeight: CGFloat = 40.0
+    }
+    
+    enum Section: Int {
+        static let sectionCount = 1
+        
+        case products
+        case activity
     }
     
     func setupUI() {
@@ -51,8 +60,17 @@ private extension ProductListViewController {
     
     func handleStateChange(change: ProductListState.Change) {
         switch change {
-        case .productsUpdated:
+        case .productsReloaded:
             collectionView.reloadData()
+        case .newProductsAdded(let indexPaths):
+            collectionView.performBatchUpdates({
+                collectionView.insertItems(at: indexPaths)
+            }) { (_) in
+                return
+            }
+        case .showLoading(let shouldShow):
+            showActivity = shouldShow
+            //collectionView.reloadSections(IndexSet(integer: Section.activity.rawValue))
         }
     }
     
@@ -71,20 +89,35 @@ private extension ProductListViewController {
 extension ProductListViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return Section.sectionCount
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.state.products.count
+        guard let section = Section(rawValue: section) else { fatalError("Invalid Section!") }
+        switch section {
+        case .products:
+            return model.state.products.count
+        case .activity:
+            return showActivity ? 1 : 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
+        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid Section!") }
+        switch section {
+        case .products:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
+            
+            let product = model.state.products[indexPath.row]
+            cell.configure(with: product)
+            
+            return cell
+        case .activity:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath)
+            
+            return cell
+        }
         
-        let product = model.state.products[indexPath.row]
-        cell.configure(with: product)
-        
-        return cell
     }
     
 }
@@ -93,11 +126,17 @@ extension ProductListViewController: UICollectionViewDataSource {
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingBetweenCells = (Const.numberOfCellOnPortrait - 1) * Const.padding
-        let totalPadding = paddingBetweenCells + (Const.padding * 2) // Cell space + Edge insets
-        let dimension = (UIScreen.main.bounds.width - CGFloat(totalPadding)) / CGFloat(Const.numberOfCellOnPortrait)
-        
-        return CGSize(width: dimension, height: dimension * Const.cellRatio)
+        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid Section!") }
+        switch section {
+        case .products:
+            let paddingBetweenCells = (Const.numberOfCellOnPortrait - 1) * Const.padding
+            let totalPadding = paddingBetweenCells + (Const.padding * 2) // Cell space + Edge insets
+            let dimension = (UIScreen.main.bounds.width - CGFloat(totalPadding)) / CGFloat(Const.numberOfCellOnPortrait)
+            
+            return CGSize(width: dimension, height: dimension * Const.cellRatio)
+        case .activity:
+            return CGSize(width: UIScreen.main.bounds.width, height: Const.activityCellHeight)
+        }
     }
     
 }
@@ -107,6 +146,18 @@ extension ProductListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: route to detail
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid Section!") }
+        switch section {
+        case .products:
+            if indexPath.row > model.state.products.count - 6 {
+                model.fetchNextPage()
+            }
+        default:
+            return
+        }
     }
     
 }

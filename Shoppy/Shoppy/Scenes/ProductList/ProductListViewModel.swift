@@ -16,7 +16,9 @@ struct ProductListState {
     var products: [Product] = []
     
     enum Change {
-        case productsUpdated
+        case productsReloaded
+        case newProductsAdded([IndexPath])
+        case showLoading(Bool)
     }
     
     enum Error {
@@ -28,19 +30,25 @@ struct ProductListState {
 fileprivate extension ProductListState {
     
     mutating func update(with newProducts: [Product]) -> Change {
+        let totalProductCount = products.count + newProducts.count
+        var indexPaths: [IndexPath] = []
+        for index in products.count..<totalProductCount {
+            indexPaths.append(IndexPath(row: index, section: 0))
+        }
+        
         products.append(contentsOf: newProducts)
         
-        return .productsUpdated
+        return .newProductsAdded(indexPaths)
     }
     
-    @discardableResult mutating func reload(with newProducts: [Product]) -> Change {
+    mutating func reload(with newProducts: [Product]) -> Change {
         products = newProducts
         
-        return .productsUpdated
+        return .productsReloaded
     }
     
-    mutating func nextPage() {
-        page += 1
+    mutating func updatePagenumber(pageNo: Int) {
+        page = pageNo
     }
     
 }
@@ -72,6 +80,8 @@ class ProductListViewModel {
 private extension ProductListViewModel {
     
     func fetch(page: Int, reload: Bool = false) {
+        stateChangeHandler?(.showLoading(true))
+        
         if let task = activeTask {
             task.cancel()
         }
@@ -83,7 +93,8 @@ private extension ProductListViewModel {
             switch response.result {
             case .success(let page):
                 if page.products.count > 0 {
-                    strongSelf.state.nextPage()
+                    strongSelf.state.updatePagenumber(pageNo: page.pageNumber)
+                    
                     if reload {
                         strongSelf.stateChangeHandler?(strongSelf.state.reload(with: page.products))
                     } else {
@@ -94,6 +105,8 @@ private extension ProductListViewModel {
                 // TODO: handle error
                 break
             }
+            
+            strongSelf.stateChangeHandler?(.showLoading(false))
         }
     }
     

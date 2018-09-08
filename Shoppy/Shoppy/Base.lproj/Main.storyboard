@@ -19,9 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4cI-S3-FfL">
+                                <rect key="frame" x="169" y="630" width="37" height="37"/>
+                                <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lmI-AH-Hak">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZzH-5P-Wae">
                                     <size key="itemSize" width="192" height="315"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -99,6 +103,25 @@
                                             <outlet property="productImageView" destination="FJQ-80-ub4" id="ruY-W6-X1J"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="activityCell" id="F7w-u5-CUm">
+                                        <rect key="frame" x="77.5" y="335" width="220" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="B2h-NY-noN">
+                                                    <rect key="frame" x="92" y="1.5" width="37" height="37"/>
+                                                    <color key="color" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="B2h-NY-noN" firstAttribute="centerY" secondItem="F7w-u5-CUm" secondAttribute="centerY" id="6yu-1b-oGb"/>
+                                            <constraint firstItem="B2h-NY-noN" firstAttribute="centerX" secondItem="F7w-u5-CUm" secondAttribute="centerX" id="rsr-Di-0V0"/>
+                                        </constraints>
+                                        <size key="customSize" width="220" height="40"/>
+                                    </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="69s-8d-4fB"/>
@@ -109,6 +132,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lmI-AH-Hak" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2sw-Qb-GX5"/>
+                            <constraint firstItem="4cI-S3-FfL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FJQ-H2-dx1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4cI-S3-FfL" secondAttribute="bottom" id="ZeI-xz-NWl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lmI-AH-Hak" secondAttribute="bottom" id="d5x-96-rQf"/>
                             <constraint firstItem="lmI-AH-Hak" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qR7-t4-XrL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lmI-AH-Hak" secondAttribute="trailing" id="w2b-j2-Ub1"/>

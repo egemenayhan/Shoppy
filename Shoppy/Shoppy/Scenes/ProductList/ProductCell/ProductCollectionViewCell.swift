@@ -23,6 +23,17 @@ class ProductCollectionViewCell: UICollectionViewCell {
     static let identifier = String(describing: ProductCollectionViewCell.self)
     
     // MARK: - Functions
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        productImageView.image = nil
+        nameLabel.text = ""
+        designerLabel.text = ""
+        priceLabel.text = ""
+        minPriceLabel.text = ""
+        minPriceLabel.isHidden = true
+    }
+    
     func configure(with product: Product) {
         nameLabel.text = product.name
         designerLabel.text = product.designerName
