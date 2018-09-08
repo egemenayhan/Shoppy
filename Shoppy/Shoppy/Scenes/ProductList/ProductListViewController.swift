@@ -12,11 +12,12 @@ class ProductListViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityBackgroundView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     private let model = ProductListViewModel()
     private var refreshControl = UIRefreshControl()
-    private var showActivity = false
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -40,17 +41,17 @@ private extension ProductListViewController {
         static let activityCellHeight: CGFloat = 40.0
     }
     
-    enum Section: Int {
-        static let sectionCount = 1
-        
-        case products
-        case activity
-    }
-    
     func setupUI() {
         refreshControl.tintColor = .orange
         refreshControl.addTarget(self, action: #selector(reloadProducts), for: .valueChanged)
         collectionView.addSubview(refreshControl)
+        
+        activityBackgroundView.alpha = 0
+        activityBackgroundView.layer.cornerRadius = activityBackgroundView.frame.width / 2
+        activityBackgroundView.layer.masksToBounds = true
+        activityBackgroundView.layer.borderWidth = 3
+        activityBackgroundView.layer.borderColor = UIColor.red.cgColor
+        
     }
     
     func setupViewModel() {
@@ -66,11 +67,16 @@ private extension ProductListViewController {
             collectionView.performBatchUpdates({
                 collectionView.insertItems(at: indexPaths)
             }) { (_) in
-                return
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.activityBackgroundView.alpha = 0
+                }
             }
-        case .showLoading(let shouldShow):
-            showActivity = shouldShow
-            //collectionView.reloadSections(IndexSet(integer: Section.activity.rawValue))
+        case .showLoading:
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.activityBackgroundView.alpha = 1
+            }
         }
     }
     
@@ -89,35 +95,20 @@ private extension ProductListViewController {
 extension ProductListViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return Section.sectionCount
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let section = Section(rawValue: section) else { fatalError("Invalid Section!") }
-        switch section {
-        case .products:
-            return model.state.products.count
-        case .activity:
-            return showActivity ? 1 : 0
-        }
+        return model.state.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid Section!") }
-        switch section {
-        case .products:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
-            
-            let product = model.state.products[indexPath.row]
-            cell.configure(with: product)
-            
-            return cell
-        case .activity:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCell", for: indexPath)
-            
-            return cell
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
         
+        let product = model.state.products[indexPath.row]
+        cell.configure(with: product)
+        
+        return cell
     }
     
 }
@@ -126,17 +117,11 @@ extension ProductListViewController: UICollectionViewDataSource {
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid Section!") }
-        switch section {
-        case .products:
-            let paddingBetweenCells = (Const.numberOfCellOnPortrait - 1) * Const.padding
-            let totalPadding = paddingBetweenCells + (Const.padding * 2) // Cell space + Edge insets
-            let dimension = (UIScreen.main.bounds.width - CGFloat(totalPadding)) / CGFloat(Const.numberOfCellOnPortrait)
-            
-            return CGSize(width: dimension, height: dimension * Const.cellRatio)
-        case .activity:
-            return CGSize(width: UIScreen.main.bounds.width, height: Const.activityCellHeight)
-        }
+        let paddingBetweenCells = (Const.numberOfCellOnPortrait - 1) * Const.padding
+        let totalPadding = paddingBetweenCells + (Const.padding * 2) // Cell space + Edge insets
+        let dimension = (UIScreen.main.bounds.width - CGFloat(totalPadding)) / CGFloat(Const.numberOfCellOnPortrait)
+        
+        return CGSize(width: dimension, height: dimension * Const.cellRatio)
     }
     
 }
@@ -149,14 +134,8 @@ extension ProductListViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let section = Section(rawValue: indexPath.section) else { fatalError("Invalid Section!") }
-        switch section {
-        case .products:
-            if indexPath.row > model.state.products.count - 6 {
-                model.fetchNextPage()
-            }
-        default:
-            return
+        if indexPath.row > model.state.products.count - 6 {
+            model.fetchNextPage()
         }
     }
     

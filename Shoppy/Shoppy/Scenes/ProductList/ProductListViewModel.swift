@@ -18,7 +18,7 @@ struct ProductListState {
     enum Change {
         case productsReloaded
         case newProductsAdded([IndexPath])
-        case showLoading(Bool)
+        case showLoading
     }
     
     enum Error {
@@ -80,7 +80,9 @@ class ProductListViewModel {
 private extension ProductListViewModel {
     
     func fetch(page: Int, reload: Bool = false) {
-        stateChangeHandler?(.showLoading(true))
+        if !reload {
+            stateChangeHandler?(.showLoading)
+        }
         
         if let task = activeTask {
             task.cancel()
@@ -105,8 +107,6 @@ private extension ProductListViewModel {
                 // TODO: handle error
                 break
             }
-            
-            strongSelf.stateChangeHandler?(.showLoading(false))
         }
     }
     
