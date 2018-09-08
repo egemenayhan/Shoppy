@@ -39,15 +39,15 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gYJ-Ch-c3w">
                                                     <rect key="frame" x="0.0" y="0.0" width="192" height="278"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="FJQ-80-ub4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="192" height="230.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="FJQ-80-ub4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="192" height="249.5"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" secondItem="FJQ-80-ub4" secondAttribute="width" multiplier="1.2" id="lom-g7-0Kw"/>
+                                                                <constraint firstAttribute="height" secondItem="FJQ-80-ub4" secondAttribute="width" multiplier="1.3" id="lom-g7-0Kw"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Mmq-ph-T8y">
-                                                            <rect key="frame" x="0.0" y="235.5" width="93" height="54"/>
+                                                            <rect key="frame" x="0.0" y="254.5" width="93" height="54"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDw-P7-7vu">
                                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="18"/>

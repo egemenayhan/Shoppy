@@ -32,7 +32,7 @@ private extension ProductListViewController {
     enum Const {
         static let padding = 10
         static let numberOfCellOnPortrait = 2
-        static let cellRatio: CGFloat = 1.7 // height / width
+        static let cellRatio: CGFloat = 1.8 // height / width
     }
     
     func setupViewModel() {

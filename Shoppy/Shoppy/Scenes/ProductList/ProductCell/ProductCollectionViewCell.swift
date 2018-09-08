@@ -8,6 +8,7 @@
 
 import UIKit
 import Networking
+import Kingfisher
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
@@ -27,6 +28,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
         designerLabel.text = product.designerName
         
         displayPrice(regular: product.price, min: product.minPrice)
+        
+        productImageView.kf.setImage(with: product.thumbnailURL)
         
         layoutSubviews()
     }
