@@ -15,12 +15,15 @@ class ProductListViewController: UIViewController {
     
     // MARK: - Properties
     private let model = ProductListViewModel()
+    private var refreshControl = UIRefreshControl()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViewModel()
+        setupUI()
+        
         model.reloadProducts()
     }
 
@@ -33,6 +36,12 @@ private extension ProductListViewController {
         static let padding = 10
         static let numberOfCellOnPortrait = 2
         static let cellRatio: CGFloat = 1.8 // height / width
+    }
+    
+    func setupUI() {
+        refreshControl.tintColor = .orange
+        refreshControl.addTarget(self, action: #selector(reloadProducts), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
     }
     
     func setupViewModel() {
@@ -49,6 +58,11 @@ private extension ProductListViewController {
     
     func handleError(error: ProductListState.Error) {
         // TODO: handle error
+    }
+    
+    @objc func reloadProducts() {
+        model.reloadProducts()
+        refreshControl.endRefreshing()
     }
     
 }

@@ -33,8 +33,8 @@ fileprivate extension ProductListState {
         return .productsUpdated
     }
     
-    @discardableResult mutating func resetProducts() -> Change {
-        products = []
+    @discardableResult mutating func reload(with newProducts: [Product]) -> Change {
+        products = newProducts
         
         return .productsUpdated
     }
@@ -63,8 +63,7 @@ class ProductListViewModel {
     }
     
     func reloadProducts()  {
-        state.resetProducts()
-        fetch(page: 0)
+        fetch(page: 0, reload: true)
     }
     
 }
@@ -72,7 +71,7 @@ class ProductListViewModel {
 // MARK: - Private extension
 private extension ProductListViewModel {
     
-    func fetch(page: Int) {
+    func fetch(page: Int, reload: Bool = false) {
         if let task = activeTask {
             task.cancel()
         }
@@ -85,7 +84,11 @@ private extension ProductListViewModel {
             case .success(let page):
                 if page.products.count > 0 {
                     strongSelf.state.nextPage()
-                    strongSelf.stateChangeHandler?(strongSelf.state.update(with: page.products))
+                    if reload {
+                        strongSelf.stateChangeHandler?(strongSelf.state.reload(with: page.products))
+                    } else {
+                        strongSelf.stateChangeHandler?(strongSelf.state.update(with: page.products))
+                    }
                 }
             case .failure(_):
                 // TODO: handle error
