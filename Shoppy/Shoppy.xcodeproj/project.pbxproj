@@ -16,6 +16,8 @@
 		A4DF0E302142AE9F00788608 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */; };
 		A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */; };
 		A4DF0E352143EBAD00788608 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */; };
+		A4EAB027214402E1004B3537 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EAB026214402E1004B3537 /* Kingfisher.framework */; };
+		A4EAB028214402E1004B3537 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4EAB026214402E1004B3537 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A4EAB028214402E1004B3537 /* Kingfisher.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +58,7 @@
 		A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		A4EAB026214402E1004B3537 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4EAB027214402E1004B3537 /* Kingfisher.framework in Frameworks */,
 				A4DF0E202141A1A700788608 /* Networking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				A4DF0E1F2141A1A700788608 /* Networking.framework */,
+				A4EAB026214402E1004B3537 /* Kingfisher.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -162,7 +168,7 @@
 				A4DF0DE321418A8A00788608 /* Frameworks */,
 				A4DF0DE421418A8A00788608 /* Resources */,
 				A4DF0E162141A06F00788608 /* Embed Frameworks */,
-				A4DF0E1A2141A0D500788608 /* ShellScript */,
+				A4DF0E1A2141A0D500788608 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -250,7 +256,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A4DF0E1A2141A0D500788608 /* ShellScript */ = {
+		A4DF0E1A2141A0D500788608 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,6 +264,7 @@
 			inputPaths = (
 				"$(SRCROOT)/../Vendor/Carthage/Build/iOS/Alamofire.framework",
 			);
+			name = Carthage;
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 			);
