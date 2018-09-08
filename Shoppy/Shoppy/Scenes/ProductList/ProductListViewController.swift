@@ -29,6 +29,12 @@ class ProductListViewController: UIViewController {
 // MARK: - Private extension
 private extension ProductListViewController {
     
+    enum Const {
+        static let padding = 10
+        static let numberOfCellOnPortrait = 2
+        static let cellRatio: CGFloat = 1.3 // height / width
+    }
+    
     func setupViewModel() {
         model.stateChangeHandler = handleStateChange
         model.errorHandler = handleError
@@ -72,7 +78,11 @@ extension ProductListViewController: UICollectionViewDataSource {
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
+        let paddingBetweenCells = (Const.numberOfCellOnPortrait - 1) * Const.padding
+        let totalPadding = paddingBetweenCells + (Const.padding * 2) // Cell space + Edge insets
+        let dimension = (UIScreen.main.bounds.width - CGFloat(totalPadding)) / CGFloat(Const.numberOfCellOnPortrait)
+        
+        return CGSize(width: dimension, height: dimension * Const.cellRatio)
     }
     
 }
