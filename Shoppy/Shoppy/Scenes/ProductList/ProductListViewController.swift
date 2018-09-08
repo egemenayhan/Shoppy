@@ -32,7 +32,7 @@ private extension ProductListViewController {
     enum Const {
         static let padding = 10
         static let numberOfCellOnPortrait = 2
-        static let cellRatio: CGFloat = 1.3 // height / width
+        static let cellRatio: CGFloat = 1.7 // height / width
     }
     
     func setupViewModel() {
@@ -65,9 +65,10 @@ extension ProductListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
         
-        cell.backgroundColor = .black
+        let product = model.state.products[indexPath.row]
+        cell.configure(with: product)
         
         return cell
     }

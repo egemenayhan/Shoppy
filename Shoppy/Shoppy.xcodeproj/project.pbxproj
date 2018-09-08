@@ -15,6 +15,7 @@
 		A4DF0E202141A1A700788608 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF0E1F2141A1A700788608 /* Networking.framework */; };
 		A4DF0E302142AE9F00788608 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */; };
 		A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */; };
+		A4DF0E352143EBAD00788608 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A4DF0E1F2141A1A700788608 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +136,19 @@
 		A4DF0E2E2142ADB900788608 /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
+				A4DF0E332143EB8800788608 /* ProductCell */,
 				A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */,
 				A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */,
 			);
 			path = ProductList;
+			sourceTree = "<group>";
+		};
+		A4DF0E332143EB8800788608 /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */,
+			);
+			path = ProductCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 			files = (
 				A4DF0E302142AE9F00788608 /* ProductListViewController.swift in Sources */,
 				A4DF0DEA21418A8A00788608 /* AppDelegate.swift in Sources */,
+				A4DF0E352143EBAD00788608 /* ProductCollectionViewCell.swift in Sources */,
 				A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
