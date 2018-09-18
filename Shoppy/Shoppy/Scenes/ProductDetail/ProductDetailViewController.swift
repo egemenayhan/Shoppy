@@ -8,9 +8,17 @@
 //
 
 import UIKit
+import Networking
 
 class ProductDetailViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet private weak var designerLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var amberLabel: UILabel!
+    @IBOutlet private weak var optionsStackView: UIStackView!
+    
     // MARK: - Properties
     private static let identifier = String(describing: ProductDetailViewController.self)
     private(set) var viewModel: ProductDetailViewModel!
@@ -28,7 +36,28 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+        populateUI()
     }
 
+    // MARK - IBActions
+    @IBAction func addToBagTapped(_ sender: Any) {
+        // TODO: add to bag operation
+    }
+    
+}
+
+// MARK: - Private extension
+private extension ProductDetailViewController {
+    
+    func setupUI() {
+        // TODO: initial UI customizations
+    }
+    
+    func populateUI() {
+        designerLabel.text = viewModel.state.product.designerName
+        nameLabel.text = viewModel.state.product.name
+        priceLabel.text = "\(viewModel.state.product.price)"
+    }
+    
 }
