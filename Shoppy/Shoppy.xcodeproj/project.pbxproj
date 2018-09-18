@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4466D7A21517D23003D22AF /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4466D7921517D23003D22AF /* Kingfisher.framework */; };
 		A4773A2721447647007C7E75 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF0E1F2141A1A700788608 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A4773A2A21453905007C7E75 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773A2921453905007C7E75 /* ProductDetailViewController.swift */; };
 		A4773A2C21453984007C7E75 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773A2B21453984007C7E75 /* ProductDetailViewModel.swift */; };
@@ -19,8 +20,6 @@
 		A4DF0E302142AE9F00788608 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */; };
 		A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */; };
 		A4DF0E352143EBAD00788608 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */; };
-		A4EAB027214402E1004B3537 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EAB026214402E1004B3537 /* Kingfisher.framework */; };
-		A4EAB028214402E1004B3537 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4EAB026214402E1004B3537 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +40,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A4773A2721447647007C7E75 /* Networking.framework in Embed Frameworks */,
-				A4EAB028214402E1004B3537 /* Kingfisher.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A4466D7921517D23003D22AF /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = ../../Vendor/Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		A4773A2921453905007C7E75 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		A4773A2B21453984007C7E75 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		A4DF0DE621418A8A00788608 /* Shoppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +63,6 @@
 		A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		A4EAB026214402E1004B3537 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4EAB027214402E1004B3537 /* Kingfisher.framework in Frameworks */,
 				A4DF0E202141A1A700788608 /* Networking.framework in Frameworks */,
+				A4466D7A21517D23003D22AF /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				A4DF0E1F2141A1A700788608 /* Networking.framework */,
-				A4EAB026214402E1004B3537 /* Kingfisher.framework */,
+				A4466D7921517D23003D22AF /* Kingfisher.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -281,14 +279,16 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/../Vendor/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/../Vendor/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			name = Carthage;
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
