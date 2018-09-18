@@ -130,7 +130,11 @@ extension ProductListViewController: UICollectionViewDelegateFlowLayout {
 extension ProductListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: route to detail
+        let product = model.state.products[indexPath.row]
+        let viewModel = ProductDetailViewModel(product: product)
+        let detailViewController = ProductDetailViewController.instantiate(model: viewModel)
+        
+        show(detailViewController, sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
