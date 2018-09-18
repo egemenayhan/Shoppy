@@ -22,6 +22,8 @@
 		36920F871FF6E09A0051424F /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36920F861FF6E09A0051424F /* BaseURL.swift */; };
 		36ABA40C1FF97195007B52DE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3643FA3A1FED4C2400BE5705 /* Alamofire.framework */; };
 		36ABA4101FF971C8007B52DE /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3643FA3A1FED4C2400BE5705 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A492489121518E5800B35D23 /* ConfigurableAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = A492489021518E5800B35D23 /* ConfigurableAttribute.swift */; };
+		A492489321518E6D00B35D23 /* ConfigurableAttributeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A492489221518E6D00B35D23 /* ConfigurableAttributeOption.swift */; };
 		A4DF0E252142819D00788608 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E242142819D00788608 /* Product.swift */; };
 		A4DF0E272142833200788608 /* ProductListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E262142833200788608 /* ProductListPage.swift */; };
 		A4DF0E292142857000788608 /* ProductListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E282142857000788608 /* ProductListRequest.swift */; };
@@ -80,6 +82,8 @@
 		3643FA451FED678300BE5705 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		3643FA471FED885900BE5705 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		36920F861FF6E09A0051424F /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
+		A492489021518E5800B35D23 /* ConfigurableAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableAttribute.swift; sourceTree = "<group>"; };
+		A492489221518E6D00B35D23 /* ConfigurableAttributeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableAttributeOption.swift; sourceTree = "<group>"; };
 		A4DF0E242142819D00788608 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A4DF0E262142833200788608 /* ProductListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPage.swift; sourceTree = "<group>"; };
 		A4DF0E282142857000788608 /* ProductListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListRequest.swift; sourceTree = "<group>"; };
@@ -177,6 +181,16 @@
 			path = NetworkingModels;
 			sourceTree = "<group>";
 		};
+		A492488F21518E2C00B35D23 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E242142819D00788608 /* Product.swift */,
+				A492489021518E5800B35D23 /* ConfigurableAttribute.swift */,
+				A492489221518E6D00B35D23 /* ConfigurableAttributeOption.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		A4DF0E222142816500788608 /* APIModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +202,6 @@
 		A4DF0E232142817500788608 /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
-				A4DF0E242142819D00788608 /* Product.swift */,
 				A4DF0E262142833200788608 /* ProductListPage.swift */,
 				A4DF0E282142857000788608 /* ProductListRequest.swift */,
 			);
@@ -198,6 +211,7 @@
 		A4DF0E2A214286E500788608 /* NisnassAPI */ = {
 			isa = PBXGroup;
 			children = (
+				A492488F21518E2C00B35D23 /* Product */,
 				A4DF0E2B2142871F00788608 /* NisnassEndpoint.swift */,
 				A4EAB02A214408FD004B3537 /* Media */,
 				A4DF0E232142817500788608 /* ProductList */,
@@ -341,7 +355,9 @@
 				3643FA211FED3C9C00BE5705 /* Networking.swift in Sources */,
 				3643FA481FED885900BE5705 /* NetworkingError.swift in Sources */,
 				3643FA421FED614900BE5705 /* API.swift in Sources */,
+				A492489321518E6D00B35D23 /* ConfigurableAttributeOption.swift in Sources */,
 				3643FA401FED605800BE5705 /* HTTPMethod.swift in Sources */,
+				A492489121518E5800B35D23 /* ConfigurableAttribute.swift in Sources */,
 				3643FA441FED677300BE5705 /* Response.swift in Sources */,
 				A4DF0E2C2142871F00788608 /* NisnassEndpoint.swift in Sources */,
 				A4DF0E292142857000788608 /* ProductListRequest.swift in Sources */,
