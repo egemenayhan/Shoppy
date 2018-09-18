@@ -55,7 +55,7 @@ private extension ProductCollectionViewCell {
         
         let formattedRegular = String(format: "%.f AED", regular)
         if regular != min {
-            priceLabel.attributedText = NSAttributedString(string: formattedRegular, attributes: [NSAttributedStringKey.strikethroughStyle: 1])
+            priceLabel.attributedText = NSAttributedString(string: formattedRegular, attributes: [NSAttributedString.Key.strikethroughStyle: 1])
             minPriceLabel.text = String(format: "%.f AED", min)
         } else {
             priceLabel.text = formattedRegular

@@ -225,9 +225,11 @@
 				TargetAttributes = {
 					A4DF0DE521418A8A00788608 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					A4DF0DF921418A8C00788608 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = A4DF0DE521418A8A00788608;
 					};
 				};
@@ -471,7 +473,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.egemenayhan.Shoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -491,7 +493,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.egemenayhan.Shoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -511,7 +513,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.egemenayhan.ShoppyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shoppy.app/Shoppy";
 			};
@@ -532,7 +534,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.egemenayhan.ShoppyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shoppy.app/Shoppy";
 			};
