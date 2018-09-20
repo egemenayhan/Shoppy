@@ -37,7 +37,6 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        populateUI()
     }
 
     // MARK - IBActions
@@ -51,13 +50,31 @@ class ProductDetailViewController: UIViewController {
 private extension ProductDetailViewController {
     
     func setupUI() {
-        // TODO: initial UI customizations
+        prepareConfigurableAttributes()
+        
+        populateUI()
     }
     
     func populateUI() {
         designerLabel.text = viewModel.state.product.designerName
         nameLabel.text = viewModel.state.product.name
         priceLabel.text = "\(viewModel.state.product.price)"
+    }
+    
+    func prepareConfigurableAttributes() {
+        for attribute: ConfigurableAttribute in viewModel.state.product.configurableAttributes {
+            let view = ConfigurableAttributeView.instantiate(for: attribute)
+            view.delegate = self
+            optionsStackView.addArrangedSubview(view)
+        }
+    }
+    
+}
+
+extension ProductDetailViewController: ConfigurableAttributeDelegate {
+    
+    func didTap(attributeView: ConfigurableAttributeView) {
+        // TODO: handle tap
     }
     
 }

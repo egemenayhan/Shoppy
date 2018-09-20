@@ -52,7 +52,7 @@ class ConfigurableAttributeView: UIView {
 private extension ConfigurableAttributeView {
     
     func setupUI() {
-        let gestureRecognizer = UIGestureRecognizer(target: self, action: #selector(attributeTapped))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(attributeTapped))
         self.addGestureRecognizer(gestureRecognizer)
         
         updateUI()
