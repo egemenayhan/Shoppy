@@ -59,9 +59,8 @@ private extension ConfigurableAttributeView {
     }
     
     func updateUI() {
-        let type = configurableAttribute.type.rawValue
-        typeLabel.text = type
-        valueLabel.text = selectedOption?.title ?? "Select \(type)"
+        typeLabel.text = configurableAttribute.title
+        valueLabel.text = selectedOption?.title ?? "Select \(configurableAttribute.title)"
     }
     
     @objc func attributeTapped() {

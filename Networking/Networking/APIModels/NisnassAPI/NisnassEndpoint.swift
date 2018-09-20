@@ -3,7 +3,7 @@
 //  Networking
 //
 //  Created by EGEMEN AYHAN on 7.09.2018.
-//  Copyright © 2018 NSIstanbul. All rights reserved.
+//  Copyright © 2018 Egemen Ayhan. All rights reserved.
 //
 
 import Foundation

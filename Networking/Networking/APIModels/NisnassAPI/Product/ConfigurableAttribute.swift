@@ -3,7 +3,7 @@
 //  Networking
 //
 //  Created by EGEMEN AYHAN on 18.09.2018.
-//  Copyright © 2018 NSIstanbul. All rights reserved.
+//  Copyright © 2018 Egemen Ayhan. All rights reserved.
 //
 
 import Foundation
@@ -16,8 +16,23 @@ public struct ConfigurableAttribute {
         case unknown = ""
     }
     
+    // MARK: - Properties
     public let type: ConfigurableAttributeType
     public let options: [ConfigurableAttributeOption]
+    public var title: String {
+        var title: String
+        
+        switch type {
+        case .size:
+            title = "Size"
+        case .color:
+            title = "Colors"
+        case .unknown:
+            title = "Unknown"
+        }
+        
+        return title
+    }
     
 }
 
