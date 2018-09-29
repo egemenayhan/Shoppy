@@ -82,30 +82,28 @@ private extension ProductDetailViewController {
         }
     }
     
-    func selectedProductChanged() {
-//        guard let stackView = optionsStackView else {
-//            return
-//        }
-//
-//        for view: UIView in stackView.subviews {
-//            let configurableView = view as! ConfigurableAttributeView
-//            switch configurableView.configurableAttribute.type {
-//            case .color:
-//                configurableView.selectedOption = viewModel.state.selectedAvailableProduct.color
-//            case .size:
-//                configurableView.selectedOption = viewModel.state.selectedAvailableProduct.size
-//            case .unknown:
-//                break
-//            }
-//        }
+}
+
+// MARK: - ConfigurableAttributeDelegate
+extension ProductDetailViewController: ConfigurableAttributeDelegate {
+    
+    func didTap(attributeView: ConfigurableAttributeView) {
+        let vc = PickerViewController.instantiate(products: viewModel.state.availableProducts,
+                                                  attributeCount: viewModel.state.product.configurableAttributes.count,
+                                                  selectedProduct: viewModel.state.selectedAvailableProduct)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
     }
     
 }
 
-extension ProductDetailViewController: ConfigurableAttributeDelegate {
+// MARK: - PickerViewControllerDelegate
+extension ProductDetailViewController: PickerViewControllerDelegate {
     
-    func didTap(attributeView: ConfigurableAttributeView) {
-        // TODO: handle tap
+    func didSelect(product: AvailableProduct) {
+        // TODO: send to model
     }
     
 }
