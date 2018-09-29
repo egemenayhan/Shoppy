@@ -26,7 +26,7 @@ public struct ConfigurableAttribute {
         case .size:
             title = "Size"
         case .color:
-            title = "Colors"
+            title = "Color"
         case .unknown:
             title = "Unknown"
         }
