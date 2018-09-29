@@ -29,7 +29,7 @@ class ConfigurableAttributeView: UIView {
             setupUI()
         }
     }
-    var selectedOption: ConfigurableAttributeOption? {
+    var selectedOption: String? {
         didSet {
             updateUI()
         }
@@ -60,7 +60,7 @@ private extension ConfigurableAttributeView {
     
     func updateUI() {
         typeLabel.text = configurableAttribute.title
-        valueLabel.text = selectedOption?.title ?? "Select \(configurableAttribute.title)"
+        valueLabel.text = selectedOption ?? "Select \(configurableAttribute.title)"
     }
     
     @objc func attributeTapped() {

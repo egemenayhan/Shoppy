@@ -23,6 +23,9 @@ class ProductDetailViewController: UIViewController {
     private static let identifier = String(describing: ProductDetailViewController.self)
     private(set) var viewModel: ProductDetailViewModel!
     
+    private var colorOptionsView: ConfigurableAttributeView?
+    private var sizeOptionsView: ConfigurableAttributeView?
+    
     // MARK: - Lifecycle
     class func instantiate(model: ProductDetailViewModel) -> ProductDetailViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -65,8 +68,36 @@ private extension ProductDetailViewController {
         for attribute: ConfigurableAttribute in viewModel.state.product.configurableAttributes {
             let view = ConfigurableAttributeView.instantiate(for: attribute)
             view.delegate = self
+            
+            switch attribute.type {
+            case .color:
+                view.selectedOption = viewModel.state.selectedAvailableProduct.color
+            case .size:
+                view.selectedOption = viewModel.state.selectedAvailableProduct.size
+            case .unknown:
+                break
+            }
+            
             optionsStackView.addArrangedSubview(view)
         }
+    }
+    
+    func selectedProductChanged() {
+//        guard let stackView = optionsStackView else {
+//            return
+//        }
+//
+//        for view: UIView in stackView.subviews {
+//            let configurableView = view as! ConfigurableAttributeView
+//            switch configurableView.configurableAttribute.type {
+//            case .color:
+//                configurableView.selectedOption = viewModel.state.selectedAvailableProduct.color
+//            case .size:
+//                configurableView.selectedOption = viewModel.state.selectedAvailableProduct.size
+//            case .unknown:
+//                break
+//            }
+//        }
     }
     
 }
