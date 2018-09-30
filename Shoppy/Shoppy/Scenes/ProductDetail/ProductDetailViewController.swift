@@ -16,6 +16,7 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet private weak var designerLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var minPriceLabel: UILabel!
     @IBOutlet private weak var amberLabel: UILabel!
     @IBOutlet private weak var optionsStackView: UIStackView!
     @IBOutlet private weak var blockerView: UIView!
@@ -70,8 +71,23 @@ private extension ProductDetailViewController {
         galleryView.medias = viewModel.state.product.medias
         designerLabel.text = viewModel.state.product.designerName
         nameLabel.text = viewModel.state.product.name
-        priceLabel.text = "\(viewModel.state.product.price)"
+        displayPrice()
         scrollView.setContentOffset(.zero, animated: true)
+    }
+    
+    func displayPrice() {
+        let regular = viewModel.state.product.price
+        let min = viewModel.state.product.minPrice
+        
+        minPriceLabel.isHidden = regular == min
+        
+        let formattedRegular = String(format: "%.f AED", regular)
+        if regular != min {
+            priceLabel.attributedText = NSAttributedString(string: formattedRegular, attributes: [NSAttributedString.Key.strikethroughStyle: 2])
+            minPriceLabel.text = String(format: "%.f AED", min)
+        } else {
+            priceLabel.text = formattedRegular
+        }
     }
     
     func prepareConfigurableAttributes() {
