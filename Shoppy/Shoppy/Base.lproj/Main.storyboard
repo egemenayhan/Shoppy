@@ -262,19 +262,37 @@
                                     <constraint firstAttribute="bottom" secondItem="MuC-mm-aep" secondAttribute="bottom" id="bvE-EE-2Xg"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dB-vo-o3t">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MI1-Bd-SNz">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.58151802009999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="MI1-Bd-SNz" firstAttribute="centerX" secondItem="1dB-vo-o3t" secondAttribute="centerX" id="PpO-Tn-afH"/>
+                                    <constraint firstItem="MI1-Bd-SNz" firstAttribute="centerY" secondItem="1dB-vo-o3t" secondAttribute="centerY" id="rMK-30-flc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="1dB-vo-o3t" secondAttribute="bottom" id="RcB-qm-sZj"/>
+                            <constraint firstItem="1dB-vo-o3t" firstAttribute="top" secondItem="Ybg-NP-9P2" secondAttribute="top" id="XTC-xz-2rg"/>
                             <constraint firstItem="zwa-qG-Pod" firstAttribute="leading" secondItem="ZhP-fk-jhF" secondAttribute="leading" id="c9L-w6-DSe"/>
+                            <constraint firstItem="1dB-vo-o3t" firstAttribute="leading" secondItem="Ybg-NP-9P2" secondAttribute="leading" id="er3-7x-opK"/>
                             <constraint firstItem="zwa-qG-Pod" firstAttribute="top" secondItem="ZhP-fk-jhF" secondAttribute="top" id="r0Y-8X-iCR"/>
                             <constraint firstItem="ZhP-fk-jhF" firstAttribute="trailing" secondItem="zwa-qG-Pod" secondAttribute="trailing" id="rHX-2W-NIf"/>
                             <constraint firstItem="ZhP-fk-jhF" firstAttribute="bottom" secondItem="zwa-qG-Pod" secondAttribute="bottom" id="rTG-jp-wnP"/>
+                            <constraint firstAttribute="trailing" secondItem="1dB-vo-o3t" secondAttribute="trailing" id="vK4-AO-Scy"/>
                             <constraint firstItem="MuC-mm-aep" firstAttribute="width" secondItem="Ybg-NP-9P2" secondAttribute="width" id="yE1-gL-Qgq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZhP-fk-jhF"/>
                     </view>
                     <connections>
                         <outlet property="amberLabel" destination="2hv-vS-rnn" id="ou2-Y9-vHz"/>
+                        <outlet property="blockerView" destination="1dB-vo-o3t" id="LL4-ih-rJc"/>
                         <outlet property="designerLabel" destination="bN3-Hb-1pw" id="Vhr-Fo-JHn"/>
                         <outlet property="nameLabel" destination="mn3-hw-Twt" id="gYq-CL-E7S"/>
                         <outlet property="optionsStackView" destination="UU2-Pk-GLb" id="VmO-WR-GGz"/>

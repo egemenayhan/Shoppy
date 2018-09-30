@@ -13,7 +13,17 @@ import Networking
 struct ProductDetailState {
     
     // MARK: - Properties
-    let product: Product
+    enum Change {
+        case productUpdated
+        case selectedproductChanged
+        case showLoader(Bool)
+    }
+    
+    enum Error {
+        case productUpdateFailed(String)
+    }
+    
+    private(set) var product: Product
     private(set) var availableProducts: [AvailableProduct] = []
     private(set) var selectedAvailableProduct: AvailableProduct!
     
@@ -40,6 +50,16 @@ struct ProductDetailState {
             // Current product found
             selectedAvailableProduct = result.first
         }
+    }
+    
+    mutating func update(product: Product) -> Change {
+        self.product = product
+        return .productUpdated
+    }
+    
+    @discardableResult mutating func update(selectedAvailableProduct: AvailableProduct) -> Change {
+        self.selectedAvailableProduct = selectedAvailableProduct
+        return .selectedproductChanged
     }
     
 }
@@ -97,11 +117,34 @@ private extension ProductDetailState {
 class ProductDetailViewModel {
     
     // MARK: - Properties
-    let state: ProductDetailState!
+    private(set) var state: ProductDetailState!
+    var stateChangeHandler: ((ProductDetailState.Change)->())?
+    var errorHandler: ((ProductDetailState.Error)->())?
     
     // MARK: - Lifecycle
     init(product: Product) {
         state = ProductDetailState(product: product)
+    }
+    
+    func load(product availableProduct: AvailableProduct) {
+        stateChangeHandler?(.showLoader(true))
+        let request = ProductRequest(sku: availableProduct.productSku)
+        Networking.shared.execute(request: request) { [weak self] (response: Response<ProductRequest.Response>) in
+            guard let strongSelf = self else { return }
+            
+            switch response.result {
+            case .success(let product):
+                // Update product and selectedAvailableProduct
+                let productChange = strongSelf.state.update(product: product)
+                strongSelf.stateChangeHandler?(productChange)
+                let selectedChange = strongSelf.state.update(selectedAvailableProduct: availableProduct)
+                strongSelf.stateChangeHandler?(selectedChange)
+            case .failure(let error):
+                // TODO: handle error
+                break
+            }
+            strongSelf.stateChangeHandler?(.showLoader(false))
+        }
     }
     
 }

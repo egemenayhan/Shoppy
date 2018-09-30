@@ -18,11 +18,11 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var amberLabel: UILabel!
     @IBOutlet private weak var optionsStackView: UIStackView!
+    @IBOutlet private weak var blockerView: UIView!
     
     // MARK: - Properties
     private static let identifier = String(describing: ProductDetailViewController.self)
     private(set) var viewModel: ProductDetailViewModel!
-    
     private var colorOptionsView: ConfigurableAttributeView?
     private var sizeOptionsView: ConfigurableAttributeView?
     
@@ -38,7 +38,8 @@ class ProductDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupViewModel()
         setupUI()
     }
 
@@ -52,9 +53,14 @@ class ProductDetailViewController: UIViewController {
 // MARK: - Private extension
 private extension ProductDetailViewController {
     
+    func setupViewModel() {
+        viewModel.stateChangeHandler = handleStateChange
+        viewModel.errorHandler = handleError
+    }
+    
     func setupUI() {
         prepareConfigurableAttributes()
-        
+        blockerView.isHidden = true
         populateUI()
     }
     
@@ -72,14 +78,34 @@ private extension ProductDetailViewController {
             switch attribute.type {
             case .color:
                 view.selectedOption = viewModel.state.selectedAvailableProduct.color
+                colorOptionsView = view
             case .size:
                 view.selectedOption = viewModel.state.selectedAvailableProduct.size
+                sizeOptionsView = view
             case .unknown:
                 break
             }
             
             optionsStackView.addArrangedSubview(view)
         }
+    }
+    
+    // MARK: - Change handler
+    func handleStateChange(change: ProductDetailState.Change) {
+        switch change {
+        case .productUpdated:
+            populateUI()
+        case .selectedproductChanged:
+            colorOptionsView?.selectedOption = viewModel.state.selectedAvailableProduct.color
+            sizeOptionsView?.selectedOption = viewModel.state.selectedAvailableProduct.size
+        case .showLoader(let show):
+            blockerView.isHidden = !show
+        }
+    }
+    
+    // MARK: - Error handler
+    func handleError(error: ProductDetailState.Error) {
+        // TODO: handle error
     }
     
 }
@@ -103,7 +129,7 @@ extension ProductDetailViewController: ConfigurableAttributeDelegate {
 extension ProductDetailViewController: PickerViewControllerDelegate {
     
     func didSelect(product: AvailableProduct) {
-        // TODO: send to model
+        viewModel.load(product: product)
     }
     
 }
