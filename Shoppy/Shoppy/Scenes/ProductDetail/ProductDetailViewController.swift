@@ -19,6 +19,8 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet private weak var amberLabel: UILabel!
     @IBOutlet private weak var optionsStackView: UIStackView!
     @IBOutlet private weak var blockerView: UIView!
+    @IBOutlet private weak var galleryView: GalleryView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     // MARK: - Properties
     private static let identifier = String(describing: ProductDetailViewController.self)
@@ -65,9 +67,11 @@ private extension ProductDetailViewController {
     }
     
     func populateUI() {
+        galleryView.medias = viewModel.state.product.medias
         designerLabel.text = viewModel.state.product.designerName
         nameLabel.text = viewModel.state.product.name
         priceLabel.text = "\(viewModel.state.product.price)"
+        scrollView.setContentOffset(.zero, animated: true)
     }
     
     func prepareConfigurableAttributes() {

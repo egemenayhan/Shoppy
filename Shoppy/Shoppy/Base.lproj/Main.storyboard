@@ -159,13 +159,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MuC-mm-aep">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="759.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAJ-RN-Nm6">
+                                            <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="VZz-Wf-kcM" customClass="GalleryView" customModule="Shoppy" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="487.5"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" secondItem="nAJ-RN-Nm6" secondAttribute="width" multiplier="1.3" id="IbO-fC-zVW"/>
+                                                    <constraint firstAttribute="height" secondItem="VZz-Wf-kcM" secondAttribute="width" multiplier="1.3" id="QA7-OX-Mhp"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="Evz-3z-9Iu">
                                                 <rect key="frame" x="0.0" y="492.5" width="375" height="82"/>
                                                 <subviews>
@@ -294,9 +294,11 @@
                         <outlet property="amberLabel" destination="2hv-vS-rnn" id="ou2-Y9-vHz"/>
                         <outlet property="blockerView" destination="1dB-vo-o3t" id="LL4-ih-rJc"/>
                         <outlet property="designerLabel" destination="bN3-Hb-1pw" id="Vhr-Fo-JHn"/>
+                        <outlet property="galleryView" destination="VZz-Wf-kcM" id="Vx3-Sw-qOL"/>
                         <outlet property="nameLabel" destination="mn3-hw-Twt" id="gYq-CL-E7S"/>
                         <outlet property="optionsStackView" destination="UU2-Pk-GLb" id="VmO-WR-GGz"/>
                         <outlet property="priceLabel" destination="RkK-kZ-oAs" id="7Y2-d4-0cm"/>
+                        <outlet property="scrollView" destination="zwa-qG-Pod" id="SXg-3y-knL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zq-KA-vQm" userLabel="First Responder" sceneMemberID="firstResponder"/>

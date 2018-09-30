@@ -25,6 +25,8 @@
 		A4E457B221563FF100B7C9AE /* AvailableProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E457B121563FF100B7C9AE /* AvailableProduct.swift */; };
 		A4E55686215F9C20001173EB /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E55684215F9C20001173EB /* PickerViewController.swift */; };
 		A4E55687215F9C20001173EB /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E55685215F9C20001173EB /* PickerViewController.xib */; };
+		A4E55692216102A1001173EB /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E55691216102A1001173EB /* GalleryView.swift */; };
+		A4E5569421611532001173EB /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E5569321611532001173EB /* GalleryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		A4E457B121563FF100B7C9AE /* AvailableProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProduct.swift; sourceTree = "<group>"; };
 		A4E55684215F9C20001173EB /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		A4E55685215F9C20001173EB /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
+		A4E55691216102A1001173EB /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		A4E5569321611532001173EB /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		A49248942152920500B35D23 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				A4E556902161024C001173EB /* GalleryView */,
 				A4E55683215F9C01001173EB /* PickerViewController */,
 				A47062032152A5E90007CC1E /* ConfigurableAttributeView */,
 			);
@@ -216,6 +221,15 @@
 				A4E55685215F9C20001173EB /* PickerViewController.xib */,
 			);
 			path = PickerViewController;
+			sourceTree = "<group>";
+		};
+		A4E556902161024C001173EB /* GalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				A4E55691216102A1001173EB /* GalleryView.swift */,
+				A4E5569321611532001173EB /* GalleryCollectionViewCell.swift */,
+			);
+			path = GalleryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +367,8 @@
 				A4E457B221563FF100B7C9AE /* AvailableProduct.swift in Sources */,
 				A4DF0E352143EBAD00788608 /* ProductCollectionViewCell.swift in Sources */,
 				A4924896215294C100B35D23 /* ConfigurableAttributeView.swift in Sources */,
+				A4E55692216102A1001173EB /* GalleryView.swift in Sources */,
+				A4E5569421611532001173EB /* GalleryCollectionViewCell.swift in Sources */,
 				A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */,
 				A4773A2C21453984007C7E75 /* ProductDetailViewModel.swift in Sources */,
 			);
