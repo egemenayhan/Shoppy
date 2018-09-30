@@ -68,9 +68,12 @@ private extension ProductDetailViewController {
     }
     
     func populateUI() {
+        optionsStackView.isHidden = viewModel.state.product.configurableAttributes.count == 0
         galleryView.medias = viewModel.state.product.medias
         designerLabel.text = viewModel.state.product.designerName
         nameLabel.text = viewModel.state.product.name
+        let points = viewModel.state.product.points
+        amberLabel.text = String(format: "Earn %.f Amber Points", points)
         displayPrice()
         scrollView.setContentOffset(.zero, animated: true)
     }
