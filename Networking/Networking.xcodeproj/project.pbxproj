@@ -29,6 +29,7 @@
 		A4DF0E292142857000788608 /* ProductListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E282142857000788608 /* ProductListRequest.swift */; };
 		A4DF0E2C2142871F00788608 /* NisnassEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E2B2142871F00788608 /* NisnassEndpoint.swift */; };
 		A4E556892160E884001173EB /* ProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E556882160E884001173EB /* ProductRequest.swift */; };
+		A4E5568F2160FFE7001173EB /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E5568E2160FFE7001173EB /* Media.swift */; };
 		A4EAB02E2144549B004B3537 /* MediaEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EAB02D2144549B004B3537 /* MediaEndpoint.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		A4DF0E282142857000788608 /* ProductListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListRequest.swift; sourceTree = "<group>"; };
 		A4DF0E2B2142871F00788608 /* NisnassEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NisnassEndpoint.swift; sourceTree = "<group>"; };
 		A4E556882160E884001173EB /* ProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRequest.swift; sourceTree = "<group>"; };
+		A4E5568E2160FFE7001173EB /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		A4EAB02D2144549B004B3537 /* MediaEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				A4EAB02D2144549B004B3537 /* MediaEndpoint.swift */,
+				A4E5568E2160FFE7001173EB /* Media.swift */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				A4DF0E2C2142871F00788608 /* NisnassEndpoint.swift in Sources */,
 				A4DF0E292142857000788608 /* ProductListRequest.swift in Sources */,
 				36920F871FF6E09A0051424F /* BaseURL.swift in Sources */,
+				A4E5568F2160FFE7001173EB /* Media.swift in Sources */,
 				A4DF0E252142819D00788608 /* Product.swift in Sources */,
 				A4EAB02E2144549B004B3537 /* MediaEndpoint.swift in Sources */,
 			);
