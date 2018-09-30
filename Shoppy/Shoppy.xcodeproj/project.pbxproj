@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4466D7A21517D23003D22AF /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4466D7921517D23003D22AF /* Kingfisher.framework */; };
+		A4773A2721447647007C7E75 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF0E1F2141A1A700788608 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4773A2A21453905007C7E75 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773A2921453905007C7E75 /* ProductDetailViewController.swift */; };
+		A4773A2C21453984007C7E75 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4773A2B21453984007C7E75 /* ProductDetailViewModel.swift */; };
+		A4924896215294C100B35D23 /* ConfigurableAttributeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4924895215294C100B35D23 /* ConfigurableAttributeView.swift */; };
+		A4924898215294DE00B35D23 /* ConfigurableAttributeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4924897215294DE00B35D23 /* ConfigurableAttributeView.xib */; };
 		A4DF0DEA21418A8A00788608 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0DE921418A8A00788608 /* AppDelegate.swift */; };
 		A4DF0DEF21418A8A00788608 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DF0DED21418A8A00788608 /* Main.storyboard */; };
 		A4DF0DF121418A8C00788608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DF0DF021418A8C00788608 /* Assets.xcassets */; };
 		A4DF0DF421418A8C00788608 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DF0DF221418A8C00788608 /* LaunchScreen.storyboard */; };
 		A4DF0DFF21418A8C00788608 /* ShoppyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0DFE21418A8C00788608 /* ShoppyTests.swift */; };
 		A4DF0E202141A1A700788608 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF0E1F2141A1A700788608 /* Networking.framework */; };
+		A4DF0E302142AE9F00788608 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */; };
+		A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */; };
+		A4DF0E352143EBAD00788608 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */; };
+		A4E457B221563FF100B7C9AE /* AvailableProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E457B121563FF100B7C9AE /* AvailableProduct.swift */; };
+		A4E55686215F9C20001173EB /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E55684215F9C20001173EB /* PickerViewController.swift */; };
+		A4E55687215F9C20001173EB /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4E55685215F9C20001173EB /* PickerViewController.xib */; };
+		A4E55692216102A1001173EB /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E55691216102A1001173EB /* GalleryView.swift */; };
+		A4E5569421611532001173EB /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E5569321611532001173EB /* GalleryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A4773A2721447647007C7E75 /* Networking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,6 +54,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A4466D7921517D23003D22AF /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = ../../Vendor/Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		A4773A2921453905007C7E75 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		A4773A2B21453984007C7E75 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		A4924895215294C100B35D23 /* ConfigurableAttributeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableAttributeView.swift; sourceTree = "<group>"; };
+		A4924897215294DE00B35D23 /* ConfigurableAttributeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurableAttributeView.xib; sourceTree = "<group>"; };
 		A4DF0DE621418A8A00788608 /* Shoppy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DF0DE921418A8A00788608 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4DF0DEE21418A8A00788608 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +69,14 @@
 		A4DF0DFE21418A8C00788608 /* ShoppyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppyTests.swift; sourceTree = "<group>"; };
 		A4DF0E0021418A8C00788608 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DF0E1F2141A1A700788608 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		A4E457B121563FF100B7C9AE /* AvailableProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProduct.swift; sourceTree = "<group>"; };
+		A4E55684215F9C20001173EB /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		A4E55685215F9C20001173EB /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
+		A4E55691216102A1001173EB /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		A4E5569321611532001173EB /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4DF0E202141A1A700788608 /* Networking.framework in Frameworks */,
+				A4466D7A21517D23003D22AF /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +99,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A47062032152A5E90007CC1E /* ConfigurableAttributeView */ = {
+			isa = PBXGroup;
+			children = (
+				A4924895215294C100B35D23 /* ConfigurableAttributeView.swift */,
+				A4924897215294DE00B35D23 /* ConfigurableAttributeView.xib */,
+			);
+			path = ConfigurableAttributeView;
+			sourceTree = "<group>";
+		};
+		A4773A28214538E3007C7E75 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A4773A2921453905007C7E75 /* ProductDetailViewController.swift */,
+				A4773A2B21453984007C7E75 /* ProductDetailViewModel.swift */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		A49248942152920500B35D23 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A4E556902161024C001173EB /* GalleryView */,
+				A4E55683215F9C01001173EB /* PickerViewController */,
+				A47062032152A5E90007CC1E /* ConfigurableAttributeView */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
 		A4DF0DDD21418A8A00788608 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +149,9 @@
 		A4DF0DE821418A8A00788608 /* Shoppy */ = {
 			isa = PBXGroup;
 			children = (
+				A4E457B021563FAE00B7C9AE /* Helpers */,
+				A49248942152920500B35D23 /* CustomComponents */,
+				A4DF0E2D2142ADAE00788608 /* Scenes */,
 				A4DF0DE921418A8A00788608 /* AppDelegate.swift */,
 				A4DF0DED21418A8A00788608 /* Main.storyboard */,
 				A4DF0DF021418A8C00788608 /* Assets.xcassets */,
@@ -114,8 +174,62 @@
 			isa = PBXGroup;
 			children = (
 				A4DF0E1F2141A1A700788608 /* Networking.framework */,
+				A4466D7921517D23003D22AF /* Kingfisher.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4DF0E2D2142ADAE00788608 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A4773A28214538E3007C7E75 /* ProductDetail */,
+				A4DF0E2E2142ADB900788608 /* ProductList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A4DF0E2E2142ADB900788608 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E332143EB8800788608 /* ProductCell */,
+				A4DF0E2F2142AE9F00788608 /* ProductListViewController.swift */,
+				A4DF0E312142AEAF00788608 /* ProductListViewModel.swift */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		A4DF0E332143EB8800788608 /* ProductCell */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF0E342143EBAD00788608 /* ProductCollectionViewCell.swift */,
+			);
+			path = ProductCell;
+			sourceTree = "<group>";
+		};
+		A4E457B021563FAE00B7C9AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A4E457B121563FF100B7C9AE /* AvailableProduct.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A4E55683215F9C01001173EB /* PickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A4E55684215F9C20001173EB /* PickerViewController.swift */,
+				A4E55685215F9C20001173EB /* PickerViewController.xib */,
+			);
+			path = PickerViewController;
+			sourceTree = "<group>";
+		};
+		A4E556902161024C001173EB /* GalleryView */ = {
+			isa = PBXGroup;
+			children = (
+				A4E55691216102A1001173EB /* GalleryView.swift */,
+				A4E5569321611532001173EB /* GalleryCollectionViewCell.swift */,
+			);
+			path = GalleryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,7 +243,7 @@
 				A4DF0DE321418A8A00788608 /* Frameworks */,
 				A4DF0DE421418A8A00788608 /* Resources */,
 				A4DF0E162141A06F00788608 /* Embed Frameworks */,
-				A4DF0E1A2141A0D500788608 /* ShellScript */,
+				A4DF0E1A2141A0D500788608 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -170,9 +284,11 @@
 				TargetAttributes = {
 					A4DF0DE521418A8A00788608 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					A4DF0DF921418A8C00788608 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = A4DF0DE521418A8A00788608;
 					};
 				};
@@ -203,6 +319,8 @@
 			files = (
 				A4DF0DF421418A8C00788608 /* LaunchScreen.storyboard in Resources */,
 				A4DF0DF121418A8C00788608 /* Assets.xcassets in Resources */,
+				A4924898215294DE00B35D23 /* ConfigurableAttributeView.xib in Resources */,
+				A4E55687215F9C20001173EB /* PickerViewController.xib in Resources */,
 				A4DF0DEF21418A8A00788608 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,20 +335,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A4DF0E1A2141A0D500788608 /* ShellScript */ = {
+		A4DF0E1A2141A0D500788608 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"$(SRCROOT)/../Vendor/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/../Vendor/Carthage/Build/iOS/Kingfisher.framework",
 			);
+			name = Carthage;
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -239,7 +360,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DF0E302142AE9F00788608 /* ProductListViewController.swift in Sources */,
 				A4DF0DEA21418A8A00788608 /* AppDelegate.swift in Sources */,
+				A4773A2A21453905007C7E75 /* ProductDetailViewController.swift in Sources */,
+				A4E55686215F9C20001173EB /* PickerViewController.swift in Sources */,
+				A4E457B221563FF100B7C9AE /* AvailableProduct.swift in Sources */,
+				A4DF0E352143EBAD00788608 /* ProductCollectionViewCell.swift in Sources */,
+				A4924896215294C100B35D23 /* ConfigurableAttributeView.swift in Sources */,
+				A4E55692216102A1001173EB /* GalleryView.swift in Sources */,
+				A4E5569421611532001173EB /* GalleryCollectionViewCell.swift in Sources */,
+				A4DF0E322142AEAF00788608 /* ProductListViewModel.swift in Sources */,
+				A4773A2C21453984007C7E75 /* ProductDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +541,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.egemenayhan.Shoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -430,7 +561,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.egemenayhan.Shoppy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -450,7 +581,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.egemenayhan.ShoppyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shoppy.app/Shoppy";
 			};
@@ -471,7 +602,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.egemenayhan.ShoppyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shoppy.app/Shoppy";
 			};
