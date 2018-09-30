@@ -18,6 +18,7 @@ public struct Product {
     public let description: String
     public let price: Double
     public let minPrice: Double
+    public let points: Double
     public let thumbnailURL: URL?
     public let configurableAttributes: [ConfigurableAttribute]
     public let medias: [Media]
@@ -36,6 +37,7 @@ private extension Product {
         case description
         case price
         case minPrice
+        case points = "amberPointsPerItem"
         case thumbnail
         case configurableAttributes
         case medias = "media"
@@ -56,6 +58,7 @@ extension Product: Decodable {
         description = try container.decode(String.self, forKey: .description)
         price = try container.decode(Double.self, forKey: .price)
         minPrice = try container.decode(Double.self, forKey: .minPrice)
+        points = try container.decode(Double.self, forKey: .points)
         configurableAttributes = try container.decode([ConfigurableAttribute].self, forKey: .configurableAttributes)
         medias = try container.decode([Media].self, forKey: .medias)
         
