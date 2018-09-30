@@ -139,7 +139,7 @@ class ProductDetailViewModel {
                 strongSelf.stateChangeHandler?(productChange)
                 let selectedChange = strongSelf.state.update(selectedAvailableProduct: availableProduct)
                 strongSelf.stateChangeHandler?(selectedChange)
-            case .failure(let error):
+            case .failure(_):
                 // TODO: handle error
                 break
             }
