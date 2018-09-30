@@ -18,6 +18,7 @@ class GalleryView: UIView {
         }
     }
     private var collectionView: UICollectionView!
+    private var layoutSize: CGSize?
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -25,10 +26,12 @@ class GalleryView: UIView {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 0
+        flowLayout.sectionInset = .zero
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .white
         collectionView.register(GalleryCollectionViewCell.self,
                                 forCellWithReuseIdentifier: String(describing: GalleryCollectionViewCell.self))
         addSubview(collectionView)
@@ -37,6 +40,11 @@ class GalleryView: UIView {
         collectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    }
+    
+    func updateUI(for size: CGSize) {
+        layoutSize = size
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 
 }
@@ -64,7 +72,13 @@ extension GalleryView: UICollectionViewDataSource {
 extension GalleryView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return frame.size
+        let size = layoutSize ?? frame.size
+        
+        if UIDevice.current.orientation.isLandscape {
+            return CGSize(width: size.width / 3, height: size.height)
+        } else {
+            return size
+        }
     }
     
 }

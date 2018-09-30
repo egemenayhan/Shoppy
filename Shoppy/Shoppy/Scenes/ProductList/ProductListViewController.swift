@@ -28,6 +28,11 @@ class ProductListViewController: UIViewController {
         
         model.reloadProducts()
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        view.layoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
 
 }
 
@@ -37,6 +42,7 @@ private extension ProductListViewController {
     enum Const {
         static let padding = 10
         static let numberOfCellOnPortrait = 2
+        static let numberOfCellOnLandscape = 3
         static let cellRatio: CGFloat = 1.8 // height / width
         static let activityCellHeight: CGFloat = 40.0
     }
@@ -117,9 +123,14 @@ extension ProductListViewController: UICollectionViewDataSource {
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingBetweenCells = (Const.numberOfCellOnPortrait - 1) * Const.padding
+        var numberOfCell = Const.numberOfCellOnPortrait
+        if UIDevice.current.orientation.isLandscape {
+            numberOfCell = Const.numberOfCellOnLandscape
+        }
+        
+        let paddingBetweenCells = (numberOfCell - 1) * Const.padding
         let totalPadding = paddingBetweenCells + (Const.padding * 2) // Cell space + Edge insets
-        let dimension = (UIScreen.main.bounds.width - CGFloat(totalPadding)) / CGFloat(Const.numberOfCellOnPortrait)
+        let dimension = (UIScreen.main.bounds.width - CGFloat(totalPadding)) / CGFloat(numberOfCell)
         
         return CGSize(width: dimension, height: dimension * Const.cellRatio)
     }

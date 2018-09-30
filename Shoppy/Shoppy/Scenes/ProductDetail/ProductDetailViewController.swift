@@ -51,6 +51,11 @@ class ProductDetailViewController: UIViewController {
         // TODO: add to bag operation
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        view.layoutSubviews()
+        galleryView.updateUI(for: CGSize(width: size.width, height: size.height * 0.75)) // 0.75 Gallery view height multiplier
+    }
+    
 }
 
 // MARK: - Private extension
