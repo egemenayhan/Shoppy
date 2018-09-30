@@ -48,7 +48,27 @@ class ProductDetailViewController: UIViewController {
 
     // MARK - IBActions
     @IBAction func addToBagTapped(_ sender: Any) {
-        // TODO: add to bag operation
+        guard let product = viewModel.state.selectedAvailableProduct else {
+            let alert = UIAlertController(title: "WARNING", message: "Please select an available product.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
+                guard let strongSelf = self else { return }
+                strongSelf.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        let size = viewModel.state.product.size
+        let color = viewModel.state.product.color
+        
+        let alert = UIAlertController(title: "ITEM ADDED TO BAG", message: "SKU: \(product.productSku), SIZE: \(size), COLOR: \(color)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
+            guard let strongSelf = self else { return }
+            strongSelf.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
