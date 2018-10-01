@@ -128,9 +128,15 @@ extension ProductListViewController: UICollectionViewDelegateFlowLayout {
             numberOfCell = Const.numberOfCellOnLandscape
         }
         
+        var width = view.frame.size.width
+        if #available(iOS 11.0, *) {
+            let guide = self.view.safeAreaLayoutGuide
+            width = guide.layoutFrame.size.width
+        }
+        
         let paddingBetweenCells = (numberOfCell - 1) * Const.padding
         let totalPadding = paddingBetweenCells + (Const.padding * 2) // Cell space + Edge insets
-        let dimension = (UIScreen.main.bounds.width - CGFloat(totalPadding)) / CGFloat(numberOfCell)
+        let dimension = (width - CGFloat(totalPadding)) / CGFloat(numberOfCell)
         
         return CGSize(width: dimension, height: dimension * Const.cellRatio)
     }

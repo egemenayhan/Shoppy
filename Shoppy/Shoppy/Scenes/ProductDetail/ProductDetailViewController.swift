@@ -11,7 +11,7 @@ import UIKit
 import Networking
 
 class ProductDetailViewController: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet private weak var designerLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
@@ -45,7 +45,7 @@ class ProductDetailViewController: UIViewController {
         setupViewModel()
         setupUI()
     }
-
+    
     // MARK - IBActions
     @IBAction func addToBagTapped(_ sender: Any) {
         if viewModel.state.selectedAvailableProduct == nil, viewModel.state.product.configurableAttributes.count > 0 {
@@ -73,16 +73,12 @@ class ProductDetailViewController: UIViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        view.layoutSubviews()
-        var height = size.height
-        var width = size.width
-        if #available(iOS 11.0, *) {
-            let guide = view.safeAreaLayoutGuide
-            height = guide.layoutFrame.size.height
-            width = guide.layoutFrame.size.width
-        }
         
-        galleryView.updateUI(for: CGSize(width: width, height: height * 0.75)) // 0.75 Gallery view height multiplier
+        coordinator.animate(alongsideTransition: { (_) in
+            self.galleryView.updateUI()
+        }, completion: { (_) in
+            self.view.layoutSubviews()
+        })
     }
     
 }
