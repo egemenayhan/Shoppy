@@ -308,7 +308,7 @@
                             <constraint firstItem="zwa-qG-Pod" firstAttribute="top" secondItem="ZhP-fk-jhF" secondAttribute="top" id="r0Y-8X-iCR"/>
                             <constraint firstItem="ZhP-fk-jhF" firstAttribute="trailing" secondItem="zwa-qG-Pod" secondAttribute="trailing" id="rHX-2W-NIf"/>
                             <constraint firstItem="ZhP-fk-jhF" firstAttribute="bottom" secondItem="zwa-qG-Pod" secondAttribute="bottom" id="rTG-jp-wnP"/>
-                            <constraint firstItem="VZz-Wf-kcM" firstAttribute="width" secondItem="Ybg-NP-9P2" secondAttribute="width" id="uAX-lo-FyT"/>
+                            <constraint firstItem="VZz-Wf-kcM" firstAttribute="width" secondItem="MuC-mm-aep" secondAttribute="width" id="uAX-lo-FyT"/>
                             <constraint firstAttribute="trailing" secondItem="1dB-vo-o3t" secondAttribute="trailing" id="vK4-AO-Scy"/>
                             <constraint firstItem="MuC-mm-aep" firstAttribute="width" secondItem="zwa-qG-Pod" secondAttribute="width" id="yE1-gL-Qgq"/>
                         </constraints>

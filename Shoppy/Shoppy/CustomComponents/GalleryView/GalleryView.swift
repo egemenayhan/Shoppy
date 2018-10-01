@@ -42,8 +42,7 @@ class GalleryView: UIView {
         collectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
     
-    func updateUI(for size: CGSize) {
-        layoutSize = size
+    func updateUI() {
         collectionView.collectionViewLayout.invalidateLayout()
     }
 
@@ -72,7 +71,7 @@ extension GalleryView: UICollectionViewDataSource {
 extension GalleryView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = layoutSize ?? frame.size
+        let size = frame.size
         
         if UIDevice.current.orientation.isLandscape {
             return CGSize(width: size.width / 3, height: size.height)
