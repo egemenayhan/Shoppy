@@ -20,7 +20,7 @@ public struct Product {
     public let minPrice: Double
     public let points: Double
     public let thumbnailURL: URL?
-    public let configurableAttributes: [ConfigurableAttribute]
+    public private(set) var configurableAttributes: [ConfigurableAttribute] = []
     public let medias: [Media]
     
 }
@@ -59,7 +59,9 @@ extension Product: Decodable {
         price = try container.decode(Double.self, forKey: .price)
         minPrice = try container.decode(Double.self, forKey: .minPrice)
         points = try container.decode(Double.self, forKey: .points)
-        configurableAttributes = try container.decode([ConfigurableAttribute].self, forKey: .configurableAttributes)
+        if let attributes = try container.decodeIfPresent([ConfigurableAttribute].self, forKey: .configurableAttributes) {
+            configurableAttributes = attributes
+        }
         medias = try container.decode([Media].self, forKey: .medias)
         
         let thumbnailPath = try container.decode(String.self, forKey: .thumbnail)
