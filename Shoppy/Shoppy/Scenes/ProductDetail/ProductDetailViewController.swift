@@ -48,7 +48,7 @@ class ProductDetailViewController: UIViewController {
 
     // MARK - IBActions
     @IBAction func addToBagTapped(_ sender: Any) {
-        guard let product = viewModel.state.selectedAvailableProduct else {
+        if viewModel.state.selectedAvailableProduct == nil, viewModel.state.product.configurableAttributes.count > 0 {
             let alert = UIAlertController(title: "WARNING", message: "Please select an available product.", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
                 guard let strongSelf = self else { return }
@@ -59,10 +59,11 @@ class ProductDetailViewController: UIViewController {
             return
         }
         
+        let productSku = viewModel.state.selectedAvailableProduct?.productSku ?? viewModel.state.product.sku
         let size = viewModel.state.product.size
         let color = viewModel.state.product.color
         
-        let alert = UIAlertController(title: "ITEM ADDED TO BAG", message: "SKU: \(product.productSku), SIZE: \(size), COLOR: \(color)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "ITEM ADDED TO BAG", message: "SKU: \(productSku), SIZE: \(size), COLOR: \(color)", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { [weak self] (action) in
             guard let strongSelf = self else { return }
             strongSelf.dismiss(animated: true, completion: nil)
@@ -73,7 +74,15 @@ class ProductDetailViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         view.layoutSubviews()
-        galleryView.updateUI(for: CGSize(width: size.width, height: size.height * 0.75)) // 0.75 Gallery view height multiplier
+        var height = size.height
+        var width = size.width
+        if #available(iOS 11.0, *) {
+            let guide = view.safeAreaLayoutGuide
+            height = guide.layoutFrame.size.height
+            width = guide.layoutFrame.size.width
+        }
+        
+        galleryView.updateUI(for: CGSize(width: width, height: height * 0.75)) // 0.75 Gallery view height multiplier
     }
     
 }
@@ -125,10 +134,10 @@ private extension ProductDetailViewController {
             
             switch attribute.type {
             case .color:
-                view.selectedOption = viewModel.state.selectedAvailableProduct.color
+                view.selectedOption = viewModel.state.selectedAvailableProduct?.color
                 colorOptionsView = view
             case .size:
-                view.selectedOption = viewModel.state.selectedAvailableProduct.size
+                view.selectedOption = viewModel.state.selectedAvailableProduct?.size
                 sizeOptionsView = view
             case .unknown:
                 break
@@ -144,8 +153,8 @@ private extension ProductDetailViewController {
         case .productUpdated:
             populateUI()
         case .selectedproductChanged:
-            colorOptionsView?.selectedOption = viewModel.state.selectedAvailableProduct.color
-            sizeOptionsView?.selectedOption = viewModel.state.selectedAvailableProduct.size
+            colorOptionsView?.selectedOption = viewModel.state.selectedAvailableProduct?.color
+            sizeOptionsView?.selectedOption = viewModel.state.selectedAvailableProduct?.size
         case .showLoader(let show):
             blockerView.isHidden = !show
         }
@@ -164,7 +173,7 @@ extension ProductDetailViewController: ConfigurableAttributeDelegate {
     func didTap(attributeView: ConfigurableAttributeView) {
         let vc = PickerViewController.instantiate(products: viewModel.state.availableProducts,
                                                   attributeCount: viewModel.state.product.configurableAttributes.count,
-                                                  selectedProduct: viewModel.state.selectedAvailableProduct)
+                                                  selectedProduct: viewModel.state.selectedAvailableProduct!)
         vc.modalPresentationStyle = .overFullScreen
         vc.modalTransitionStyle = .crossDissolve
         vc.delegate = self

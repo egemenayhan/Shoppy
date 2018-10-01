@@ -25,7 +25,7 @@ struct ProductDetailState {
     
     private(set) var product: Product
     private(set) var availableProducts: [AvailableProduct] = []
-    private(set) var selectedAvailableProduct: AvailableProduct!
+    private(set) var selectedAvailableProduct: AvailableProduct?
     
     // MARK: - Lifecycle
     init(product: Product) {
